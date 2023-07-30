@@ -66,3 +66,15 @@ docker run -it \
 <p><a href="http://localhost:8085" rel="nofollow noopener">Airflow UI</a></p>
 <p><a href="http://localhost:8081" rel="nofollow noopener">Spark Worker Node</a></p>
 </div>
+Once done with all the installation,
+Open the Jupiter notebook.
+Once done with the code to get the data from the API, it is stored in the file.
+Log on to the container in vscode: docker -exec -it container_name sh
+Follow the below commands to store the data in Hadoop.
+hadoop fs -ls /
+cd /root
+cd ipynb
+hadoop fs -mkdir /finance_data
+hadoop fs -put /root/ipynb/spark-warehouse/finance_complaint/* /finance_data/
+hadoop fs -ls /finance_data
+Now, we can see the data in HDFS.
